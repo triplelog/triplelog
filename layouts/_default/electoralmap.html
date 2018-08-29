@@ -1,0 +1,92 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+<style>
+
+{{ range $state := .Params.states }}
+	#{{ $state.name }}B, #label{{ $state.name }}B {display: inline;}
+	#{{ $state.name }}W, #label{{ $state.name }}W, #{{ $state.name }}R, #label{{ $state.name }}R {display: none;}
+	#{{ $state.name }}B:checked ~ #{{ $state.name }}W, #{{ $state.name }}B:checked ~ #label{{ $state.name }}W, #{{ $state.name }}W:checked ~ #{{ $state.name }}R, #{{ $state.name }}W:checked ~ #label{{ $state.name }}R {display: inline;}
+	#{{ $state.name }}W:Not(:checked) ~ #scoreboard #{{ $state.name }}red, #{{ $state.name }}R:Not(:checked) ~ #scoreboard #{{ $state.name }}blue{display: none;}
+	#{{ $state.name }}B + label polygon {fill: blue;}
+	#{{ $state.name }}W + label polygon {fill: white;}
+	#{{ $state.name }}R + label polygon {fill: red;}
+
+{{ end }}
+polygon {
+fill: green;
+pointer-events: initial;
+}
+input[type='radio'] {
+position: absolute;
+left: 0px;
+top:0px;
+opacity: 0.0;
+}
+label {
+pointer-events: none;
+}
+polygon:hover {
+cursor: crosshair;
+}
+polygon:active {
+cursor: crosshair;
+}
+
+</style>
+</head>
+<body>
+	<div style="position: relative; left: 5%; z-index: 5;">
+
+		{{ range $state := .Params.states }}
+			<input type="radio" name="{{ $state.name }}" id="{{ $state.name }}B"><label for="{{ $state.name }}B" id="label{{ $state.name }}B">
+				<svg viewBox="0 -450 1000 450" width="1000" height="450" style="position: absolute; left: 13px; top: 13px;">
+				{{ range $polygon := $state.polygons }}
+			  		<polygon stroke="rgb(200,200,200)" stroke-width="1" points="{{ $polygon }}"></polygon>
+			  	{{ end }}
+				</svg>
+		
+			</label>
+			<input type="radio" name="{{ $state.name }}" id="{{ $state.name }}W" {{ if eq $state.last 1}}checked{{ end }}><label for="{{ $state.name }}W" id="label{{ $state.name }}W">
+				<svg viewBox="0 -450 1000 450" width="1000" height="450" style="position: absolute; left: 13px; top: 13px;">
+			  	{{ range $polygon := $state.polygons }}
+			  		<polygon stroke="rgb(200,200,200)" stroke-width="1" points="{{ $polygon }}"></polygon>
+			  	{{ end }}
+				</svg>
+		
+			</label>
+			<input type="radio" name="{{ $state.name }}" id="{{ $state.name }}R" {{ if eq $state.last 0}}checked{{ end }}><label for="{{ $state.name }}R" id="label{{ $state.name }}R">
+				<svg viewBox="0 -450 1000 450" width="1000" height="450" style="position: absolute; left: 13px; top: 13px;">
+			  	{{ range $polygon := $state.polygons }}
+			  		<polygon stroke="rgb(200,200,200)" stroke-width="1" points="{{ $polygon }}"></polygon>
+			  	{{ end }}
+				</svg>
+		
+			</label>
+		
+		{{ end }}
+		
+		<div style="width:538px;height: 10px;background: rgba(200,200,200,.25); position: absolute; top: 500px; left: 50px;" id="scoreboard">
+			{{ range $state := .Params.states }}
+				<span style="width:{{ $state.ev }}px;height: 10px; background: rgba(200,0,0,.75); float: left;" id="{{ $state.name }}red"></span>
+			{{ end }}
+			{{ range $state := .Params.states }}
+				<span style="width:{{ $state.ev }}px;height: 10px; background: rgba(00,0,200,.75); float: right;" id="{{ $state.name }}blue"></span>
+			{{ end }}
+			<span style="position: absolute; left: 269; width: 1px; height: 10px; background: rgba(0,0,0,1);"></span>
+			<span style="position: absolute; left: 270; width: 1px; height: 10px; background: rgba(255,255,255,1);"></span>
+			<span style="position: absolute; left: 271; width: 1px; height: 10px; background: rgba(0,0,0,1);"></span>
+			
+		</div>
+
+
+	</div>
+</body>
+
+
+{{ partial "footer.html" . }}

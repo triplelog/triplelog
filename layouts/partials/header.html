@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{ partial "head-open" . }}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ .Title }}</title>
+        {{ if .Site.Params.favicon }}
+        <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+        {{ end }}
+        {{ if .Params.description }}
+        <meta name="description" content="{{ .Params.description }}"/>
+        {{ else }}
+        <meta name="description" content="Visit TripleLog to learn how to play Sudoku Farm, learn some trigonometry, or look at some baseball pitch charts."/>
+        {{ end }}
+        <meta name="google-site-verification" content="iZk9UXmK-YrpxP_EEHKt6ju9nF23ZZW2DdKWKLtjmlA" />
+        {{ partial "css" . }} {{ partial "js" . }} {{ .Hugo.Generator }}
+
+        {{ if .Site.GoogleAnalytics }}
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', '{{ .Site.GoogleAnalytics }}');
+        </script>
+        {{ end }}
+        {{ if .Params.awesomplete }}
+        <link rel="stylesheet" href="https://triplelog.com/css/awesomplete.css" />
+        <script src="https://triplelog.com/js/awesomplete.min.js"></script>
+        {{ end }}
+        {{ if .Params.gifmaker }}
+        <script type="text/javascript" src="https://triplelog.com/js/LZWEncoder.js"></script>
+		<script type="text/javascript" src="https://triplelog.com/js/NeuQuant.js"></script>
+		<script type="text/javascript" src="https://triplelog.com/js/GIFEncoder.js"></script>
+		<script type="text/javascript" src="https://triplelog.com/js/b64.js"></script>
+		{{ end }}
+		{{ if .Params.draggable }}
+		<script src="https://triplelog.com/js/CSSPlugin.min.js"></script>
+		<script src="https://triplelog.com/js/Draggable.min.js"></script>
+		<script src="https://triplelog.com/js/TweenLite.min.js"></script>
+		{{ end }}
+		{{ if .Params.katex }}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script>
+    	{{ end }}
+    	{{ if .Params.sortable }}
+    	<script src="https://triplelog.com/js/sortable.min.js"></script>
+    	{{ end }}
+    </head>
+
+    <body {{ if .Params.onload }}onload="{{ .Params.onload | safeJS }}"{{ end }}>
+        {{ partial "body-open" . }}
+        <ul class="navbar">
+				
+					<li class="logo"><span class="helper"></span><a href="/index.html" style="vertical-align: middle; display: inline-block;"><img src="/images/logoText.png" height="30px" style="vertical-align: middle;"></a></li>
+					<li class="nav dropdown1">
+						<ul class="dropdown-content1">
+							<li><a href="https://sudokufarm.com">Sudoku Farm</a></li>
+						</ul>
+						<a class="dropdown1">Games</a>
+					</li>
+					<li class="nav dropdown2">
+						<ul class="dropdown-content2">
+							<li><a href="/sports/pitchcharts/pitchcharts">Pitch Charts</a></li>
+							<li><a href="/sports/cfb/rankings">NCAAF Rankings</a></li>
+							<li><a href="/sports/recruiting/recruiting">NCAAF Recruiting</a></li>
+						</ul>
+						<a class="dropdown2">Sports</a>
+					</li>
+					<li class="nav dropdown3">
+						<ul class="dropdown-content3">
+							<li><a href="https://csshole.com/maps">Political Maps</a></li>
+							<li><a href="https://csshole.com/math">Math</a></li>
+							<li><a href="https://csshole.com/games">Games</a></li>
+						</ul>
+						<a class="dropdown3">CSS Hole</a>
+					</li>
+				
+			</ul>

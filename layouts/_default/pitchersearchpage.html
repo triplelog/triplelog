@@ -1,0 +1,48 @@
+{{ partial "header" . }}
+
+<main>
+
+<div style="width: 60%; left: 20%; position: relative;">
+	<h2><center>What pitcher?</center></h2>
+
+	<div>
+		{{ partial "sports/pitchersearch" . }}
+		
+	</div>
+	Search by name or MLB ID. Or click the dropdown button to browse pitchers.
+	
+	<h3><center>What do the pitch charts show?</center></h3>
+	<div style="display: flex; flex-direction: row;">
+		<span style="flex: 3;">
+			<ul style="list-style-type: none;">
+				<li>Each chart displays the pitch sequence in an at-bat.</li>
+				<li>Balls are faded while strikes are not.</li>
+				<li>Swings are represented by a border around the ball.</li>
+				<li>Each pitch type has its own color.</li>
+			</ul>
+		</span>
+		<span style="flex: 2;">
+			<ul>
+				<li><span style="color: red;">Fastballs are red</span></li>
+				<li><span style="color: rgb(0,128,0);">Curveballs are green</span></li>
+				<li><span style="color: rgb(255,165,0);">Sliders are yellow</span></li>
+				<li><span style="color: blue;">Changeups are blue</span></li>
+				<li><span style="color: black;">Others are black</span></li>
+			</ul>
+		</span>
+	</div>
+	The pitch type information is the default data provided by MLBAM, which is good for most pitchers. However, some pitchers have slightly different pitches that get miscategorized. 
+	Other information included is the batter's name, the location of any baserunners at the beginning of the at-bat, the number of outs, and the result of the at-bat.
+	
+	<h3><center>What about the location of pitches?</center></h3>
+	To learn more about a particular at-bat, click on it. On the right side a box will appear that shows the location of each pitch. It will be a gif that shows the sequence of pitches with location and an approximation of the movement illustrated by a faded tail.
+	
+	<h3><center>What if that is too much information?</center></h3>
+	Once you reach the pitch chart for a particular pitcher you can filter by game, batter, or situation. If you select a game (by search or dropdown) then every at-bat from that game will be displayed. If you select a batter (by search or dropdown) then every at-bat against that batter will be displayed. If you select a situation then every at-bat satisfying your criteria will be displayed. You can select the number of outs, runners, or inning by checking the appropriate boxes. Note that, for now at least, you cannot combine the situation filters with the game or batter filters. 
+	
+	
+</div>
+</main>
+
+
+{{ partial "footer" . }}

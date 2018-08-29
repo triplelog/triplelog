@@ -1,0 +1,46 @@
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+	{{range $inningIndex, $inningElement := .Params.innings }}
+		<span class="pitchThird" name="{{ $inningElement.game }}">
+			<h3 class="inningName"><center>{{ $inningElement.name }}</center></h3>
+			{{range $index, $element := $inningElement.batters}}
+				<div class="oneAB" onclick="createGif([{{ range $this_pitch := $element.pitch }}{{ if ne $this_pitch.ptype 0}}[{{ $this_pitch.ptype }},{{ $this_pitch.xcoord }},{{ $this_pitch.ycoord }},{{ $this_pitch.pfx }},{{ $this_pitch.pfz }},{{ $this_pitch.strike }},{{ $this_pitch.swing }} ],{{ end }}{{ end}}]);" name="{{ $element.outs }}{{ $element.runners }}{{ $element.inning }}{{ $element.bid }}">
+					<div style="display: flex;">
+						<div style="flex: 5;">
+							{{ $element.name }}
+						</div>
+						<div style="flex: 10;">
+							<div style="display:flex;">
+								{{range $i := $element.pitch}}
+								{{if ne $i.ptype 0 }}
+									<div style="flex: 1;">
+										<img src="/images/pitch{{ $i.ptype }}{{ $i.strike }}{{ $i.swing }}.png">
+									</div>
+								{{ end }}
+								{{if eq $i.ptype 0 }}
+									<div style="flex: 1;"></div>
+								{{ end }}
+								{{ end }}
+							</div>
+							<div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+								<div style="flex: 1;">
+									<img src="/images/bases{{ $element.runners }}.png">
+								</div>
+								
+								<div style="flex: 1; display: inline-block; position: relative;">
+									<span class="helper"></span>
+									<span style="vertical-align: middle; display: inline-block; float: left;"><img src="/images/outs{{ $element.outs }}.png" style="vertical-align: middle;"></span>
+								</div>
+								<div style="flex: 3;">
+									{{ $element.result }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{{ end }}
+
+		</span>
+    {{ end }}
+</div>
+
+    

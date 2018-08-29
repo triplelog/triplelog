@@ -1,0 +1,57 @@
+Who did the media consider the 18th best college football team in 2017?
+
+Determining the 18th best team in college football last season is neither important or the point of this post. Determining who the voters of the Associated Press thought was the 18th best team in college football last season is not important but is the point of this post.
+
+According to the official final AP poll, LSU was ranked 18th. So LSU has a pretty strong case for this coveted title. The AP uses a points system where a first place vote is worth 25 points, second place is 24 points, and so on. Rankings are determined by the sum total of points from all voters.
+
+Because each voter provides a ranked list of choices, the AP is using a form of ranked choice voting. Their choice of taking a sum of points is a Borda count. In the sports world, most decisions that are made by polling writers or coaches use a Borda count.
+
+Ranked choice voting does not require a Borda count, and there are good arguments to be made for other systems. We will look at one real world example to illustrate how different voting systems can take the exact same set of voter preferences and produce different results. We will pretend the top 17 teams in the poll were deemed ineligible and voters were forced to choose a national champion from the rest of college football.
+
+There were 61 ballots cast and votes were split amongst LSU, Mississippi State, Stanford, and a couple of other teams for 18th best team. One approach to picking the winner amongst several choices is to examine the teams in pairs.
+
+Who did voters prefer, LSU or Mississippi State? Mississippi State was ranked ahead of LSU on 34 ballots compared to 27 for LSU. As a completely irrelevant tangent, Mississippi State defeated LSU by 30 points when they played in September. 
+
+Who did voters prefer, Stanford or Mississippi State? Again Mississippi State was preferred by more voters, and in fact Mississippi State wins any potential 1-on-1 matchup for the title of 18th best team. If voters would favor Mississippi State in any matchup, should they actually have been ranked 18th? If you believe that Mississippi State was robbed then you would probably like the Condorcet system.
+
+The Condorcet system pairs up each candidate and determines a winner. If one candidate wins every 1-on-1 matchup then they are declared the victor. The system is relatively easy to understand, hard to corrupt, and never produces a winner who wins by some fluke. The biggest downside of the Condorcet system is that sometimes there is no clear winner. A tiebreaker system is required, but this tiebreaker can be any of the other systems.
+
+Another possible system is the Borda count that was discussed earlier. We said that the AP uses a Borda count and determined LSU to be the winner. However their points system included votes for the top 17 teams. What if we remove those votes and redo the Borda count?
+
+The advantage of the Borda count is that it is possible to indicate a strong preference for one candidate over another by separating them by several places. The downside is that a decision about LSU, Mississippi State, and Stanford can be influenced by whether other teams are good or bad.
+
+The Borda count can mean any method of awarding points based on where in the rankings a candidate appears. Every system rewards a decreasing number of points for lower rankings, but determining how quickly points decrease can have a significant impact on the final rankings in a close race. Some systems reward bonus points for first-place votes. 
+
+If a team is ranked in rth place by a voter, then the AP awards them 26-r points. So 1st place is 25 points and 25th place is 1 point. Another option is to divide instead of subtract. So we could award 25/r points for rth place. Then 1st place is still 25 points and 25th place is 1 point. But a 2nd place vote is worth only 12.5 points instead of 24 points. 
+
+Neither system is superior, but each accomplishes different goals. The subtraction method rewards consistency, while the division method does a better job of ignoring outliers. Both systems, and any other Borda count, are susceptible to rewarding voters for submitting ballots that do not reflect their true rankings.
+
+If a voter feels strongly that Stanford is slightly better than LSU how should they vote? One option is to vote for Stanford one slot above LSU because that is how the voter actually ranks them. Another option is to vote for Stanford and rank LSU further down the ballot. That option gives the best chance of Stanford ranking above LSU. Which is the moral choice, the ranking that reflects the voters true feelings or the ranking that will ensure the published ranking reflects the true order?
+
+If a voter from the SEC had left Oklahoma off his ballot to give Auburn a better chance of advancing to the title game, most people would have been outraged over this decision. There seems to be a strong preference for voters providing an accurate ranking no matter the consequence. For less important decisions than college football rankings people seem to be okay with strategic voting. Tell a Hillary Clinton or Al Gore supporter that you voted for Jill Stein or Ralph Nader and see if they applaud you for voting your conscience.
+
+Voting systems that reward strategic voting can cause problems if there is disagreement about whether such strategy is acceptable. And that brings this discussion to first by the post voting. The way most of the United States and the world selects politicians is a system called first past the post. Each person gets one vote and the candidate with the most votes wins.
+
+According to first past the post voting, who would the media consider the 18th best team? Assume that the media has already selected the top 17 teams and each voter gets one vote for the best remaining team.
+
+Mississippi State receives 16 of these new "first-place" votes while LSU receives just 10. However, Stanford actually gets 19 first-place votes. So Stanford would actually be the victor in most political elections. 
+
+Despite more voters preferring LSU over Stanford, more voters preferring Mississippi State over Stanford, and the Borda count placing Stanford in third place.
+
+So there are three teams that can make reasonable claims to being the media's pick for 18th best team. Since Florida teams in the American Athletic Conference do not like being excluded, it should be noted that USF also received 10 "first-place" votes.
+
+Is there a way to definitively determine the most popular team among LSU, Mississippi State, and Stanford?
+
+
+
+
+
+
+Is it realistic to dream that American elections will use Condorcet or another form of ranked choice voting? The good news is that ranked choice voting does not favor either party. While the last two close Presidential elections have tipped towards Republican, there is no reason to believe in the future Republicans will continue to win every tightly contested race. The bad news is that there is some bipartisan opposition. 
+
+Every politician won using the first past the post so changing that is risking a lot. Many districts are strongly opposed to one of the two parties, and a third party challenge could be a bigger threat. Maine used a ballot measure and other states could follow the same path of going around state legislatures.
+
+If you want to learn more about the political angle of ranked choice systems, click here.
+
+
+

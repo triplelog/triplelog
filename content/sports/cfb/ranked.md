@@ -1,0 +1,56 @@
+---
+title: "Ranked Choice Voting"
+date: 2018-06-20
+tags: []
+draft: false
+type: "about"
+layout: "basic"
+
+---
+
+<h2 style="text-align: center;">Ranked Choice Voting</h2> 
+<p>In the 2017 NL MVP race, most pundits predicted that Giancarlo Stanton and Joey Votto would be the top two vote getters. Of the 30 voters, 5 preferred Joey Votto over Giancarlo Stanton but thought another player was the best. What is the appropriate decision? Vote for the best player in the league or vote so that the MVP is awarded to the better player?</p>
+<p>In the MVP situation, many people feel that voting your true ranking is the only morally defensible position. If a voter believes that Paul Goldschmidt is the best player in the league then it is not fair to him to vote for someone else first.</p>
+<p>However, in the world of politics the general consensus is reversed. Voting for a third party candidate is viewed as almost indefensible. Who is correct? The problem is neither voting system is designed to account for the situation where the best candidate and the preferred likely to win candidate are not the same. Is there a way to reward the more preferred candidate while also allowing voters to vote their conscience?</p>
+<p>Ranked choice voting can be any voting system where voters submit a ranked list of preferences. Just about every award in sports is decided by a form of ranked choice voting, but just about every politician is elected by a non-ranked choice system. But there are many types of ranked choice systems. Using the available data from sports we will examine the possibilities. The baseball writers have been publishing full ballots for a few years for end of year awards and the AP has been releasing full ballots for college football and mens basketball rankings.</p>
+
+<h2 style="text-align: center;">Borda Count</h2> 
+<p>Borda count is the system that is most commonly used for sports awards. First place votes receive a certain number of points and then each place after receives fewer and fewer points. The main potential advantage of the borda count is that it is possible to make it known that one candidate is significantly better than another. If one voter thinks homeruns are all that matter and walks are not impressive they may vote Stanton first and Votto not at all. If another voter thinks Votto is slightly better than Stanton they may vote Votto first and Stanton second. The borda count punishes Votto in this situation and other candidates that are extremely unpopular. However, the borda count can thus be gamed by voters. If there are two candidates with a chance to win then the debate is whether to vote your actual preferences or to vote for your preferred candidate of the two first and not rank the other candidate at all.</p>
+<p>Also the results can be impacted for innocent reasons. There is no way to distinguish between a bunch of similar candidates and a big jump. And the relative value of third parties can have an uneven influence. It is not clear that there is any more information than simple pairing. Also, the number of points to assign each place is incredibly important and often fairly arbitrary.</p>
+
+<h2 style="text-align: center;">Condorcet Method</h2>
+<p>The Condorcet method looks for a candidate that is preferred to all others.</p>
+
+
+<p>If Charlie Blackmon had been injured for the last two months of the season, then Joey Votto would have won the MVP.
+<p>Have you ever walked into a voting booth and felt forced to vote for the lesser of two evils?</p>
+<p>Ranked choice voting is a way to prevent such problems. Voters can express their wish that a certain candidate not be elected under any circumstances while also casting a vote for the candidate they really like. If the decision comes down to two people then an ideal voting system eliminates the complexities that other people bring. </p>
+<p>How does it work?</p>
+<p>Everyone provides a list of their top choices. For the AP Poll this step does not change. In politics voters would need to rank candidates rather than just choose their favorite. Then teams are eliminated one by one until only one team is left. Basically the team that is least able to claim to be number one is eliminated and their votes removed from the rankings. Early on it is easy to identify teams that are definitely not the top ranked team.</p>
+<p>Eventually there are only three teams remaining. We compare team A to team B ignoring team C completely. If more voters chose team A over team B then that counts as a win for team A. We repeat this process for team B compared to team C and team A compared to team C. Usually one of the three teams will lose both matchups and get eliminated. If not then we consider it a three way tie as a majority of voters prefer a particular team over the top team. Once there are two teams we compare them head to head and see who is preferred by more voters.   </p>
+<p>Are there examples of the superiority of ranked choice voting?</p>
+
+<p>In the 2017 NL MVP race, almost everyone knew the race would come down to Giancarlo Stanton and Joey Votto. However, not every voter considered them the top two players in the league. So they each received votes for 3rd place and below. Imagine you were a voter who considered Joey Votto to be the best player in the league and Giancarlo Stanton the second best player. How should you vote? Obviously place Votto first, but where should Stanton go? There is an obvious argument that he should be placed second because that makes your ballot most accurate. But if you really think Votto deserves the MVP, shouldn't you provide the ballot that makes this outcome most likely? If any voter had left Stanton off of their ballot then Votto would have won the MVP. So the voter has two options: make their ballot accurate or make the sure the overall ranking is accurate so that the best player in the league wins the MVP. Which method is fairer?</p>
+<p>Half of 2017 MVP voters felt that Votto was better and half felt that Stanton was better. If there had been no other players on their level then the vote would have been tied. But because some voters preferred other candidates Stanton got more points. If it is true that Stanton voters felt he was significantly better than Votto then he probably deserved the award, but the presence of other candidates does not add to the accuracy.</p>
+
+<p>In the 2008-2009 final Coaches Poll, Oklahoma received 1482 points while Florida received 1481 points. Thus Oklahoma was ranked number 1, but it was considered close. Yet of the 61 voters, 34 preferred Oklahoma compared to 27 preferring Florida. If one voter had voted Oklahoma 4th instead of 2nd then Florida would have been ranked number 1 despite 56% of voters thinking that Oklahoma was the better team. The issue for Oklahoma was that Texas was also a very good team. Many voters chose SEC or Big 12 number 1. And then chose which Big 12 team was better. If Texas had been obviously inferior to Oklahoma then Oklahoma would have been the clear number 1. Or if another SEC team had been good the vote would have split. Ranked choice voting would eliminate any of these arbitrary differences that impact what should be a direct comparison. If this had been the final poll before the BCS/Playoff era and Florida had received that extra vote then almost 56% of voters would have disagreed with the National Champion that their own poll had awarded. Thankfully, ranked choice voting is used for all important decisions.</p>
+  
+<p>In the 2012 AL Cy Young race there were 28 ballots cast. David Price and Justin Verlander were by far the most popular candidates. 13 ballots had Justin Verlander number 1 and David Price number 2. 12 ballots had David Price number 1 and Justin Verlander number 2.  What happened with the other 3 ballots.</p>
+  <p>One voter thought that Fernando Rodney was the best pitcher in the American League. As a closer he had an ERA of 0.60 and 48 saves. Rodney had an incredible year, but his performance had nothing to do with David Price or Justin Verlander. If he had blown a couple more saves then that voter would have voted for Verlander first and Price second. Because there was extra bonus of 2 points for first place, that voter choosing Rodney meant that Verlander was only considered 1 point better than Price rather than the 3 point bonus he would have received if he had been 1 and Price 2.</p>
+<p>
+  The two beat writers for the Los Angeles Angels cast the other two special ballots. They both voted David Price number 1, Jered Weaver number 2, and Justin Verlander number 3. Of course, Jered Weaver was a Los Angeles Angel so his appearance on the ballot does not necessarily mean that those two voters considered Price to be significantly better than Verlander. They probably just really liked Weaver. Because the two voters that had a hometown candidate happened to prefer Price over Verlander it cost Verlander two more points. 
+</p>
+<p>
+  Ultimately 14 voters preferred Price and 14 voters preferred Verlander, but Price won the vote by 4 points. If Price received those extra points because his supporters thought he was much better than Verlander then it would make sense to give him the award. But the Angels writers essentially ranked Price as 4 points better than Verlander while the Rodney voter only awarded Verlander one extra point over Price. It is hard to believe that adding Fernando Rodney and Jered Weaver to the discussion make any difference to the relative ranking of David Price and Justin Verlander. If Fernando Rodney had been a little bit better maybe the two Rays voters would have bumped Rodney up to first from third and thus cost David Price 4 points. 
+</p>
+
+<p>Continuing on the Justin Verlander losing close Cy Young races, we look at 2016 American League Cy Young. This time Rick Porcello and Justin Verlander were the top two vote getters and Porcello won the award. And 16 of the 30 voters actually preferred Porcello over Verlander so a ranked choice system would have also given the award to Porcello. Interestingly, though, there were 14 voters who chose Verlander number 1 compared to 8 that considered Porcello the best pitcher in the league
+</p>
+<p>
+  If the Cy Young was decided by letting voters pick their top choice and seeing who gets the most votes then Justin Verlander would have won the award and could credibly claim that he had won in a landslide with 75% more support than the second place candidate. Despite his popularity amongst those 14 voters, the other 16 voters all considered Porcello to have had a better year than Verlander. They simply could not agree on how to order the several pitchers they preferred over Verlander. Fortunately a system where voters can only choose their favorite candidate is not used to decide anything important because it does not always return the best choice.
+</p>
+<p>What are the advantages?</p>
+<p>A voter cannot intentionally place a team lower than they deserve to make the rankings more to their liking. Direct comparisons between teams are not influenced by whether or not there are other teams that happen to be about as good.</p>
+
+<p>What are the disadvantages?</p>
+<p>With ranked voting there is no way to indicate that one team is significantly better than another. As long as every voter is voting their true ballot then</p>

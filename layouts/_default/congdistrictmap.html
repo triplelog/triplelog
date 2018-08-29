@@ -1,0 +1,240 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+<meta name="description" content="{{ .Params.description }}"/>
+<style>
+
+{{ range $state := .Params.states }}
+	#{{ $state.name }}form {display: none;}
+	#{{ $state.name }}B:checked ~ #{{ $state.name }}form {display: inline;}
+	{{ range $cd := $state.cds }}
+		#{{ $cd.name }}B {display: inline;}
+		#{{ $state.name }}B:Not(:checked) ~ #label{{ $cd.name }}B {display: none;}
+		#{{ $state.name }}B:Not(:checked) ~ #label{{ $cd.name }}W {display: none;}
+		#{{ $state.name }}B:Not(:checked) ~ #label{{ $cd.name }}R {display: none;}
+		#{{ $state.name }}B:Not(:checked) ~ #label{{ $cd.name }}BL {display: none;}
+		#{{ $state.name }}B:Not(:checked) ~ #label{{ $cd.name }}RL {display: none;}
+		
+		#{{ $state.name }}B:checked ~ #label{{ $cd.name }}B {display: inline;}
+		
+		#{{ $cd.name }}BL, #label{{ $cd.name }}BL, #{{ $cd.name }}RL, #label{{ $cd.name }}RL, #{{ $cd.name }}W, #label{{ $cd.name }}W, #{{ $cd.name }}R, #label{{ $cd.name }}R {display: none;}
+
+		#{{ $state.name }}B:checked ~ #{{ $cd.name }}B:checked ~ #label{{ $cd.name }}BL {display: inline;}
+		#{{ $state.name }}B:checked ~ #{{ $cd.name }}BL:checked ~ #label{{ $cd.name }}W {display: inline;}
+		#{{ $state.name }}B:checked ~ #{{ $cd.name }}W:checked ~ #label{{ $cd.name }}RL {display: inline;}
+		#{{ $state.name }}B:checked ~ #{{ $cd.name }}RL:checked ~ #label{{ $cd.name }}R {display: inline;}
+		
+		#{{ $cd.name }}B:Not(:checked) ~ #scoreboard #{{ $cd.name }}blueL, #{{ $cd.name }}W:Not(:checked) ~ #scoreboard #{{ $cd.name }}redL, #{{ $cd.name }}RL:Not(:checked) ~ #scoreboard #{{ $cd.name }}red, #{{ $cd.name }}R:Not(:checked) ~ #scoreboard #{{ $cd.name }}blue{display: none;}
+		
+
+		#label{{ $cd.name }}W2, #label{{ $cd.name }}RL2, #label{{ $cd.name }}BL2, #label{{ $cd.name }}R2 {display: none;}
+		#{{ $cd.name }}B:checked ~ #label{{ $cd.name }}BL2 {display: inline;}
+		#{{ $cd.name }}BL:checked ~ #label{{ $cd.name }}W2 {display: inline;}
+		#{{ $cd.name }}W:checked ~ #label{{ $cd.name }}RL2 {display: inline;}
+		#{{ $cd.name }}RL:checked ~ #label{{ $cd.name }}R2 {display: inline;}
+
+
+	{{ end }}
+
+{{ end }}
+
+
+input[type='radio'] {
+position: absolute;
+left: 0px;
+top:0px;
+opacity: 0.0;
+}
+label {
+pointer-events: none;
+}
+polygon:hover {
+cursor: crosshair;
+}
+polygon:active {
+cursor: crosshair;
+}
+
+{{ range $state := .Params.states }}
+	{{ range $cd := $state.cds }}
+
+		#{{ $state.name }}B + label polygon {
+			fill: gray;
+		}
+
+	{{ end }}
+{{ end }}
+
+</style>
+</head>
+<body>
+	<div style="position: relative; left: 5%; z-index: 5;">
+		
+		{{ range $state := .Params.states }}
+			<input type="radio" name="state" id="{{ $state.name }}B" class="stateRadio">
+			<label for="{{ $state.name }}B" id="label{{ $state.name }}B" class="stateOutline">
+				<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px;">
+				{{ range $polygon := $state.polygons }}
+			  		<polygon fill-opacity="1.0" stroke="rgb(00,00,00)" stroke-width="3" points="{{ $polygon }}" pointer-events="fill"></polygon>
+			  	{{ end }}
+				</svg>
+				
+		
+			</label>
+		
+
+			{{ range $cd := $state.cds }}
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}B" form="{{ $state.name }}form">
+				<label for="{{ $cd.name }}B" id="label{{ $cd.name }}B" style="position: absolute; left: 500px;">
+					<svg viewBox="{{ $state.bounds }}" width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: blue;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<polygon id="{{ $cd.name }}Poly{{ $idx }}" stroke="rgb(200,200,200)" stroke-width="1" points="{{ $polygon }}" pointer-events="fill"></polygon>
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}BL" form="{{ $state.name }}form" {{ if eq $cd.last 2}}checked{{ end }}>
+				<label for="{{ $cd.name }}BL" id="label{{ $cd.name }}BL" style="position: absolute; left: 500px;">
+					<svg viewBox="{{ $state.bounds }}" width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: rgb(135, 206, 250);">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}W" form="{{ $state.name }}form">
+				<label for="{{ $cd.name }}W" id="label{{ $cd.name }}W" style="position: absolute; left: 500px;">
+					
+					<svg viewBox="{{ $state.bounds }}" width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: white;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}RL" form="{{ $state.name }}form" {{ if eq $cd.last 1}}checked{{ end }}>
+				<label for="{{ $cd.name }}RL" id="label{{ $cd.name }}RL" style="position: absolute; left: 500px;">
+					<svg viewBox="{{ $state.bounds }}" width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: rgb(255, 204, 203);">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}R" form="{{ $state.name }}form" {{ if eq $cd.last 0}}checked{{ end }}>
+				<label for="{{ $cd.name }}R" id="label{{ $cd.name }}R" style="position: absolute; left: 500px;">
+					<svg viewBox="{{ $state.bounds }}" width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: red;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}" />
+					{{ end }}
+					</svg>
+
+				</label>
+				
+				
+
+			{{ end }}
+			<form id="{{ $state.name }}form"><input type="reset" value="Reset {{ $state.name }}"></form>
+
+			
+			{{ range $cd := $state.cds }}
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}B2">
+				<label for="{{ $cd.name }}B2" id="label{{ $cd.name }}B2" style="pointer-events: none;">
+					<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: blue;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<polygon id="{{ $cd.name }}Poly{{ $idx }}I" stroke="rgb(200,200,200)" stroke-width="1" points="{{ $polygon }}" pointer-events="none"></polygon>
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}BL2">
+				<label for="{{ $cd.name }}BL2" id="label{{ $cd.name }}BL2" style="pointer-events: none;">
+					<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: rgb(135, 206, 250);">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}I" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}W2">
+				<label for="{{ $cd.name }}W2" id="label{{ $cd.name }}W2" style="pointer-events: none;">
+					<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: white;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}I" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}RL2">
+				<label for="{{ $cd.name }}RL2" id="label{{ $cd.name }}RL2" style="pointer-events: none;">
+					<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: rgb(255, 204, 203);">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}I" />
+					{{ end }}
+					</svg>
+
+				</label>
+				<input type="radio" name="{{ $cd.name }}" id="{{ $cd.name }}R2">
+				<label for="{{ $cd.name }}R2" id="label{{ $cd.name }}R2" style="pointer-events: none;">
+					<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px; fill: red;">
+					{{ range $idx, $polygon := $cd.polygons }}
+						<use href="#{{ $cd.name }}Poly{{ $idx }}I" />
+					{{ end }}
+					</svg>
+
+				</label>
+
+			{{ end }}
+		{{ end }}
+		
+		{{ range $state := .Params.states }}
+			<input type="radio" name="{{ $state.name }}" id="{{ $state.name }}B"><label for="{{ $state.name }}B" id="label{{ $state.name }}B" class="stateOutline">
+				<svg viewBox='{{ $.Param "bounds" }}' width="500" height="450" style="position: absolute; left: 13px; top: 13px;">
+				{{ range $polygon := $state.polygons }}
+			  		<polygon fill-opacity="0.0" stroke="rgb(00,00,00)" stroke-width="3" points="{{ $polygon }}"></polygon>
+			  	{{ end }}
+				</svg>
+		
+			</label>
+		
+		{{ end }}
+		
+		<div style="width:432px;height: 10px;background: rgba(200,200,200,.25); position: absolute; top: 500px; left: 50px;" id="scoreboard">
+			{{ range $state := .Params.states }}
+				{{ range $cd := $state.cds }}
+					<span style="width:1px;height: 10px; background: rgba(200,0,0,1); float: left;" id="{{ $cd.name }}red"></span>
+				{{ end }}
+			{{ end }}
+			{{ range $state := .Params.states }}
+				{{ range $cd := $state.cds }}
+					<span style="width:1px;height: 10px; background: rgba(255, 204, 203,1); float: left;" id="{{ $cd.name }}redL"></span>
+				{{ end }}
+			{{ end }}
+			
+			{{ range $state := .Params.states }}
+				{{ range $cd := $state.cds }}
+					<span style="width:1px;height: 10px; background: rgba(00,0,200,1); float: right;" id="{{ $cd.name }}blue"></span>
+				{{ end }}
+			{{ end }}
+			{{ range $state := .Params.states }}
+				{{ range $cd := $state.cds }}
+					<span style="width:1px;height: 10px; background: rgba(135, 206, 250,1); float: right;" id="{{ $cd.name }}blueL"></span>
+				{{ end }}
+			{{ end }}
+			
+			<span style="position: absolute; left: 219; width: 1px; height: 10px; background: rgba(0,0,0,1);"></span>
+			<span style="position: absolute; left: 220; width: 1px; height: 10px; background: rgba(255,255,255,1);"></span>
+			<span style="position: absolute; left: 221; width: 1px; height: 10px; background: rgba(0,0,0,1);"></span>
+			
+		</div>
+
+
+	</div>
+</body>
+
+
+{{ partial "footer.html" . }}

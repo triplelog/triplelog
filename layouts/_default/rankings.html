@@ -1,0 +1,69 @@
+{{ partial "header" . }}
+
+<main>
+
+<section id="banner">
+  <span>
+	The following table is the final AP Poll from 2017. While the AP has published a preseason poll with each voters ballots, those ballots are incomplete for some reason. Hopefully next week will have better data and these rankings can be updated to the 2018 season.
+	<table id="rankTable" style="margin-left: auto; margin-right: auto; padding-top: 5vh; padding-bottom: 5vh; font-size: calc(.2vw + .8em);">
+		<thead>
+			<tr style="background: rgb(255,0,0); color: white;">
+			  <th width="12%">AP Rank</th>
+			  <th width="28%">School</th>
+			  <th width="12%">Conference</th>
+			  <th width="12%">FPTP</th>
+			  <th width="12%">Condorcet</th>
+			  <th width="12%">IRV</th>
+			  <th width="12%">Borda</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range $i,$team := .Params.teams }}
+			{{ if modBool $i 2}}
+			<tr style="background: rgb(200,200,200);">
+			{{ else }}
+			<tr style="background: rgb(255,255,255);">
+			{{ end }}
+			  <td style="text-align: right;">{{ $team.rank }}</td>
+			  <td>{{ $team.school }}</td>
+			  <td>{{ $team.conference }}</td>
+			  {{ if lt $team.fptp $team.rank }}
+			  <td class="betterRank">{{ $team.fptp }}</td>
+			  {{ else if gt $team.fptp $team.rank }}
+			  <td class="worseRank">{{ $team.fptp}}</td>
+			  {{ else }}
+			  <td class="sameRank">{{ $team.fptp }}</td>
+			  {{ end }}
+			  {{ if lt $team.condorcet $team.rank }}
+			  <td class="betterRank">{{ $team.condorcet }}</td>
+			  {{ else if gt $team.condorcet $team.rank }}
+			  <td class="worseRank">{{ $team.condorcet }}</td>
+			  {{ else }}
+			  <td class="sameRank">{{ $team.condorcet }}</td>
+			  {{ end }}
+			  {{ if lt $team.irv $team.rank }}
+			  <td class="betterRank">{{ $team.irv }}</td>
+			  {{ else if gt $team.irv $team.rank }}
+			  <td class="worseRank">{{ $team.irv}}</td>
+			  {{ else }}
+			  <td class="sameRank">{{ $team.irv }}</td>
+			  {{ end }}
+			  {{ if lt $team.borda $team.rank }}
+			  <td class="betterRank">{{ $team.borda }}</td>
+			  {{ else if gt $team.borda $team.rank }}
+			  <td class="worseRank">{{ $team.borda}}</td>
+			  {{ else }}
+			  <td class="sameRank">{{ $team.borda }}</td>
+			  {{ end }}
+			</tr>
+			{{ end }}
+		</tbody>
+		  
+	</table>
+
+  </span>
+</section>
+
+
+</main>
+{{ partial "footer.html" . }}

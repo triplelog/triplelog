@@ -1,0 +1,59 @@
+{{ partial "header" . }}
+
+<main>
+
+<section id="banner">
+  <span class="image object">
+
+	<table id="recTable" width="45%" style="margin-left: 5vh; padding-top: 5vh; padding-bottom: 50vh; font-size: calc(.2vw + .8em);">
+		<thead>
+			<tr style="background: rgb(255,0,0); color: white;">
+			  <th>Rank</th>
+			  <th>School</th>
+			  <th>Conference</th>
+			  <th>Commits</th>
+			  <th>Rating</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range $i,$team := .Params.teams }}
+			{{ if modBool $i 2}}
+			<tr id="{{ $team.id }}" style="background: rgb(200,200,200);" class="recruitingTeam">
+			{{ else }}
+			<tr id="{{ $team.id }}" style="background: rgb(255,255,255);" class="recruitingTeam">
+			{{ end }}
+			  <td>{{ $team.rank }}</td>
+			  <td>{{ $team.school }}</td>
+			  <td>{{ $team.conference }}</td>
+			  <td>{{ $team.commits }}</td>
+			  <td>{{ $team.rating }}</td>
+			  <td class="recruitingPlayers">
+			  	<table>
+					<tr>
+						<th>Name</th><th>Position</th><th>Hometown</th><th>Top Offers</th>
+					</tr>
+					{{ range $idx,$recruit := $team.recruits }}
+						{{ if modBool $idx 2}}
+						<tr style="background: rgb(200,200,200);">
+						{{ else }}
+						<tr style="background: rgb(255,255,255);">
+						{{ end }}
+							<td><a href="{{ $recruit.link}}">{{ $recruit.name}}</a></td><td>{{ $recruit.position}}</td><td>{{ $recruit.hometown}}</td><td>{{ $recruit.offers}}</td>
+						</tr>
+					{{ end }}
+			  	</table>
+			  </td>
+			</tr>
+			{{ end }}
+		</tbody>
+		  
+	</table>
+	<!-- <a href="#" class="button big" onclick="markdownRecs(25);">Generate Markdown</a>
+	<div id="markdown_spot"></div>-->
+
+  </span>
+</section>
+
+
+</main>
+{{ partial "footer.html" . }}

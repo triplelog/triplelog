@@ -1,0 +1,1 @@
+borda,alabama,0,georgia,0,oklahoma,0,clemson,0,ohio-state,0,ucf,0,wisconsin,0,penn-state,0,tcu,0,auburn,0,notre-dame,0,usc,0,oklahoma-state,0,miami-fl,0,michigan-state,0,washington,0,northwestern,0,mississippi-state,0,lsu,0,stanford,0,south-florida,0,boise-state,0,north-carolina-state,0,virginia-tech,0,memphis,0
